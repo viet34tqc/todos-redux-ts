@@ -1,39 +1,29 @@
-.App {
-  text-align: center;
+:root {
+	--c-main: #764abc;
+	--c-text: #404040;
+	--c-white: #fff;
+
+	--f-main: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
+		sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	font-family: var(--f-main);
+	color: var(--c-text);
+	line-height: 1.5;
+	background: var(--white);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+h1 {
+	line-height: 1.1;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.container {
+	@media (min-width: 1024px) {
+		max-width: 1200px;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
