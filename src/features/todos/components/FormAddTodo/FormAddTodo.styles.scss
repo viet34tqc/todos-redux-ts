@@ -1,8 +1,10 @@
 .todo-form-add {
 	input {
-		width: 100%;
-		border: none;
-		padding: 12px 24px;
 		font-size: 18px;
+
+		width: 100%;
+		padding: 18px 48px;
+		border: none;
+		border-bottom: 1px solid var(--c-gray-1);
 	}
 }

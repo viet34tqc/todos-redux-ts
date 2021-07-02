@@ -3,7 +3,9 @@
 	justify-content: space-between;
 	align-items: center;
 
-	border-top: 1px solid var(--c-gray-1);
+	&:not(:first-child) {
+		border-top: 1px solid var(--c-gray-1);
+	}
 	&__toggle {
 		position: absolute;
 		left: -9999px;
