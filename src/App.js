@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
-import FormAddTodo from './features/todos/components/FormAddTodo';
-import TodoFilter from './features/todos/components/TodoFilter';
-import TodoList from './features/todos/components/TodoList';
+import FormAddTodo from './features/todos/components/FormAddTodo/FormAddTodo';
+import TodoFilter from './features/todos/components/TodoFilter/TodoFilter';
+import TodoList from './features/todos/components/TodoList/TodoList';
 
 function App() {
 	return (

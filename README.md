@@ -13,14 +13,14 @@
 ## Components
 
     - Header: a big header with static text
-    - Form: input for adding todo
+    - FormAddTodo: input for adding todo
     - TodoList
     - TodoItem:
         - Button to mark completed
         - Name
         - Select color
         - Button to delete
-    - Footer
+    - FilterTodo
         - 2 buttons
             - Mark all completed
             - Clear all completed todos
@@ -41,3 +41,8 @@
 - Reducer
   - fetchTodos:
     - create thunk to Get todos from fakeApi and pass into entities
+  - addTodo
+  - deleteTodo
+  - selectTodoColor
+  - completeAll
+  - clearCompletedTodo

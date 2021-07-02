@@ -21,12 +21,16 @@ export const todosSlice = createSlice({
 				state.status = 'loading';
 			})
 			.addCase(fetchTodos.fulfilled, (state, action) => {
-				action.payload.forEach( todo => {
+				action.payload.forEach((todo) => {
 					state.entities[todo.id] = todo;
-				})
+				});
 				state.status = 'idle';
 			});
 	},
 });
+
+export const selectAll = (state) => {
+	return Object.values(state.todos.entities);
+};
 
 export default todosSlice.reducer;
