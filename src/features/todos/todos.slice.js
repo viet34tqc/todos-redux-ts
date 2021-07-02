@@ -23,6 +23,18 @@ export const todosSlice = createSlice({
 		deleteTodo: (state, action) => {
 			delete state.entities[action.payload];
 		},
+		selectTodoColor: {
+			reducer: (state, action) => {
+				const { todoId, color } = action.payload;
+				state.entities[todoId].color = color;
+			},
+			prepare: (todoId, color) => ({
+				payload: {
+					todoId,
+					color,
+				},
+			}),
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -45,6 +57,6 @@ export const selectAll = (state) => {
 	return Object.values(state.todos.entities);
 };
 
-export const { deleteTodo } = todosSlice.actions;
+export const { deleteTodo, selectTodoColor } = todosSlice.actions;
 
 export default todosSlice.reducer;
