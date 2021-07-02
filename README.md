@@ -42,6 +42,9 @@
   - fetchTodos:
     - create thunk to Get todos from fakeApi and pass into entities
   - addTodo
+    - create thunk to post todo to fakeApi
+    - when form submit, dispatch action addTodo, thunk will post todo to fakeApi
+    - Once fulfilled, add todo to the state.todos.entries
   - deleteTodo
   - selectTodoColor
   - completeAll

@@ -19,7 +19,11 @@ const initialState = {
 export const todosSlice = createSlice({
 	name: 'todos',
 	initialState,
-	reducers: {},
+	reducers: {
+		deleteTodo: (state, action) => {
+			delete state.entities[action.payload];
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchTodos.pending, (state, action) => {
@@ -40,5 +44,7 @@ export const todosSlice = createSlice({
 export const selectAll = (state) => {
 	return Object.values(state.todos.entities);
 };
+
+export const { deleteTodo } = todosSlice.actions;
 
 export default todosSlice.reducer;
