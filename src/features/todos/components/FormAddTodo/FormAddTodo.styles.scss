@@ -1,10 +1,19 @@
 .todo-form-add {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid var(--c-gray-1);
+
+	.loader {
+		width: 16px;
+		height: 16px;
+		margin: 0 12px;
+	}
 	input {
 		font-size: 18px;
 
 		width: 100%;
 		padding: 18px 48px;
 		border: none;
-		border-bottom: 1px solid var(--c-gray-1);
 	}
 }

@@ -6,6 +6,11 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
 	return response.todos;
 });
 
+export const addTodo = createAsyncThunk('todos/addTodo', async (text) => {
+	const response = await client.post('/fakeApi/todos', { todo: { text } });
+	return response.todo;
+});
+
 const initialState = {
 	status: 'idle',
 	entities: {},
@@ -25,6 +30,9 @@ export const todosSlice = createSlice({
 					state.entities[todo.id] = todo;
 				});
 				state.status = 'idle';
+			})
+			.addCase(addTodo.fulfilled, (state, action) => {
+				state.entities[action.payload.id] = action.payload;
 			});
 	},
 });
