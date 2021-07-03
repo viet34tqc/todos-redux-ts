@@ -20,6 +20,10 @@ export const todosSlice = createSlice({
 	name: 'todos',
 	initialState,
 	reducers: {
+		toggleTodo: (state, action) => {
+			const todo = state.entities[action.payload];
+			todo.completed = !todo.completed;
+		},
 		deleteTodo: (state, action) => {
 			delete state.entities[action.payload];
 		},
@@ -34,6 +38,18 @@ export const todosSlice = createSlice({
 					color,
 				},
 			}),
+		},
+		markAllCompleted: (state, action) => {
+			Object.values(state.entities).forEach((todo) => {
+				todo.completed = true;
+			});
+		},
+		clearCompleted: (state, action) => {
+			Object.values(state.entities).forEach((todo) => {
+				if (todo.completed) {
+					delete state.entities[todo.id];
+				}
+			});
 		},
 	},
 	extraReducers: (builder) => {
@@ -57,6 +73,12 @@ export const selectAll = (state) => {
 	return Object.values(state.todos.entities);
 };
 
-export const { deleteTodo, selectTodoColor } = todosSlice.actions;
+export const {
+	toggleTodo,
+	deleteTodo,
+	selectTodoColor,
+	markAllCompleted,
+	clearCompleted,
+} = todosSlice.actions;
 
 export default todosSlice.reducer;

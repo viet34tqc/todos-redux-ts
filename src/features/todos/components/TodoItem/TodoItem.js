@@ -2,7 +2,7 @@ import { ReactComponent as DeleteIcon } from 'assets/delete.svg';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { availableColors, capitalize } from 'utils';
-import { deleteTodo, selectTodoColor } from '../../todos.slice';
+import { deleteTodo, selectTodoColor, toggleTodo } from '../../todos.slice';
 import './TodoItem.styles.scss';
 const TodoItem = ({ todo }) => {
 	const colorOptions = availableColors.map((color) => (
@@ -17,10 +17,18 @@ const TodoItem = ({ todo }) => {
 	const handleSelectColor = ({ target: { value } }) => {
 		dispatch(selectTodoColor(todo.id, value));
 	};
+	const handleToggle = () => {
+		dispatch(toggleTodo(todo.id));
+	};
 	return (
 		<li className="todo-item">
 			<label className="todo-item__label">
-				<input className="todo-item__toggle" type="checkbox" />
+				<input
+					className="todo-item__toggle"
+					type="checkbox"
+					checked={todo.completed}
+					onChange={handleToggle}
+				/>
 				<h3 className="todo-item__text">{todo.text}</h3>
 			</label>
 			<div className="todo-item__actions">

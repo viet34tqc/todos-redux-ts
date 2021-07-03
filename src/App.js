@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.scss';
+import Footer from './components/Footer/Footer';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import FormAddTodo from './features/todos/components/FormAddTodo/FormAddTodo';
-import TodoFilter from './features/todos/components/TodoFilter/TodoFilter';
 import TodoList from './features/todos/components/TodoList/TodoList';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 			<Main>
 				<FormAddTodo />
 				<TodoList />
-				<TodoFilter />
+				<Footer />
 			</Main>
 		</div>
 	);
