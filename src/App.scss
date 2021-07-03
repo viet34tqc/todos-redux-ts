@@ -17,6 +17,10 @@ html {
 	box-sizing: inherit;
 }
 
+ul {
+	list-style: none;
+}
+
 body {
 	font-family: var(--f-main);
 	color: var(--c-text);

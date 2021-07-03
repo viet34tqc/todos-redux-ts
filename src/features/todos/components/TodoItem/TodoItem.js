@@ -35,6 +35,7 @@ const TodoItem = ({ todo }) => {
 				<select
 					className="todo-item__color-select"
 					onChange={handleSelectColor}
+					value={todo.color}
 				>
 					<option value=""></option>
 					{colorOptions}

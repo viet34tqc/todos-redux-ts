@@ -14,7 +14,15 @@ const initialState = {
 export const filtersSlice = createSlice({
 	name: 'filters',
 	initialState,
-	reducers: {},
+	reducers: {
+		filterByColor: (state, action) => {
+			state.colors = action.payload;
+		},
+		filterByStatus: (state, action) => {
+			state.status = action.payload;
+		},
+	},
 });
 
+export const { filterByColor, filterByStatus } = filtersSlice.actions;
 export default filtersSlice.reducer;

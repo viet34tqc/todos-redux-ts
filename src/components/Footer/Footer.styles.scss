@@ -2,6 +2,7 @@
 	padding: 16px;
 	border-top: 1px solid var(--c-gray);
 	display: grid;
+	grid-gap: 32px;
 	grid-template-columns: repeat(2, 1fr);
 	@media (min-width: 768px) {
 		grid-template-columns: repeat(4, 1fr);
@@ -9,6 +10,6 @@
 
 	&-widget__title {
 		font-size: 16px;
-        text-align: center;
+		text-align: center;
 	}
 }

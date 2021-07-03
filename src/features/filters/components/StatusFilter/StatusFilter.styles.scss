@@ -1,0 +1,13 @@
+.footer-widget--status-filter {
+	label {
+		display: block;
+	}
+	button {
+		background: none;
+		border: 1px solid transparent;
+		margin-bottom: 4px;
+		&.is-active {
+			border: 1px solid var(--c-gray);
+		}
+	}
+}

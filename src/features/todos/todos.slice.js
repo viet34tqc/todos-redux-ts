@@ -1,5 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+	createAsyncThunk,
+	createSelector,
+	createSlice,
+} from '@reduxjs/toolkit';
 import { client } from '../../api/client';
+import { FilterStatus } from '../filters/filters.slice';
 
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
 	const response = await client.get('fakeApi/todos');
@@ -72,6 +77,28 @@ export const todosSlice = createSlice({
 export const selectAll = (state) => {
 	return Object.values(state.todos.entities);
 };
+
+export const selectFilterdTodos = createSelector(
+	// Input: selectors
+	selectAll,
+	(state) => state.filters,
+	(todos, filters) => {
+		const { status, colors } = filters;
+		const isAllStatus = status === FilterStatus.All;
+		const isCompletedStatus = status === FilterStatus.Completed;
+
+		if (isAllStatus && !colors.length) {
+			return todos;
+		}
+
+		return todos.filter((todo) => {
+			const isStatusMatches = todo.completed === isCompletedStatus || todo.status === isAllStatus;
+			const isColorsMatches =
+				colors.includes(todo.color) || colors.length === 0;
+			return isColorsMatches && isStatusMatches;
+		});
+	}
+);
 
 export const {
 	toggleTodo,
