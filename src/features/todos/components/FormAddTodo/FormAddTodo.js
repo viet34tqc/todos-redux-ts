@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../../../app/hooks';
 import Loader from '../../../../components/Loader/Loader';
 import { addTodo } from '../../todos.slice';
 import './FormAddTodo.styles.scss';
 const FormAddTodo = () => {
 	const [text, setText] = useState('');
 	const [status, setStatus] = useState('idle');
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setStatus('loading');
@@ -23,7 +23,7 @@ const FormAddTodo = () => {
 				placeholder="Add your new todo"
 				onChange={(e) => setText(e.target.value)}
 			/>
-			{status === 'loading' && <Loader/ >}
+			{status === 'loading' && <Loader />}
 		</form>
 	);
 };

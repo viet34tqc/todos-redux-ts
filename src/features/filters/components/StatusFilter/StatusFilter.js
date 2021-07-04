@@ -1,10 +1,10 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { filterByStatus, FilterStatus } from '../../filters.slice';
 import './StatusFilter.styles.scss';
 const StatusFilter = () => {
-	const dispatch = useDispatch();
-	const currentStatus = useSelector((state) => state.filters.status);
+	const dispatch = useAppDispatch();
+	const currentStatus = useAppSelector((state) => state.filters.status);
 	const handleChangeStatus = (status) => {
 		dispatch(filterByStatus(status));
 	};

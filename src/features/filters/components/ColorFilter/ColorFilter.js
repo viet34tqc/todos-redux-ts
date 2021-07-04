@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../../../app/hooks';
 import { availableColors } from '../../../../utils';
 import { filterByColor } from '../../filters.slice';
 import './ColorFilter.styles.scss';
 
 const ColorFilter = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const [checkedState, setCheckedState] = useState(() => {
 		const state = {};

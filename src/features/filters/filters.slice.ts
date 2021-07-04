@@ -6,7 +6,12 @@ export const FilterStatus = {
 	Completed: 'Completed',
 };
 
-const initialState = {
+interface FiltersState {
+	status: string;
+	colors: string[];
+}
+
+const initialState: FiltersState = {
 	status: FilterStatus.All,
 	colors: [],
 };

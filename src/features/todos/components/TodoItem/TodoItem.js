@@ -1,7 +1,7 @@
 import { ReactComponent as DeleteIcon } from 'assets/delete.svg';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { availableColors, capitalize } from 'utils';
+import { useAppDispatch } from '../../../../app/hooks';
 import { deleteTodo, selectTodoColor, toggleTodo } from '../../todos.slice';
 import './TodoItem.styles.scss';
 const TodoItem = ({ todo }) => {
@@ -10,7 +10,7 @@ const TodoItem = ({ todo }) => {
 			{capitalize(color)}
 		</option>
 	));
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const handleDelete = () => {
 		dispatch(deleteTodo(todo.id));
 	};

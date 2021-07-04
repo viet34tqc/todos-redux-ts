@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../../app/hooks';
 import Loader from '../../../../components/Loader/Loader';
 import { selectFilterdTodos } from '../../todos.slice';
 import TodoItem from '../TodoItem/TodoItem';
 import './TodoList.styles.scss';
 
 const TodoList = () => {
-	const loadingStatus = useSelector((state) => state.todos.status);
-	const todos = useSelector(selectFilterdTodos);
+	const loadingStatus = useAppSelector((state) => state.todos.status);
+	const todos = useAppSelector(selectFilterdTodos);
 
 	const todoList = todos.map((todo) => <TodoItem key={todo.id} todo={todo} />);
 	return (

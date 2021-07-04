@@ -1,9 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../app/hooks';
 import { selectAll } from '../../../features/todos/todos.slice';
 import './ActiveTodos.styles.scss';
 const ActiveTodos = () => {
-	const count = useSelector((state) => {
+	const count = useAppSelector((state) => {
 		const allTodos = selectAll(state).filter((todo) => !todo.completed);
 		return allTodos.length;
 	});
