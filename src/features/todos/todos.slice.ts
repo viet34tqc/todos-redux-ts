@@ -26,6 +26,7 @@ interface TodosState {
 interface TodoState {
 	id: number;
 	color: string;
+	text: string;
 	completed: boolean;
 	status: string;
 }

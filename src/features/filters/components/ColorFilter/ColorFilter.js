@@ -36,6 +36,9 @@ const ColorFilter = () => {
 	));
 
 	useEffect(() => {
+		if (!Object.entries(checkedState).length) {
+			return;
+		}
 		const selectedColor = Object.entries(checkedState)
 			.filter(([name, state]) => state)
 			.map(([name, state]) => name);
