@@ -13,17 +13,17 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
 	return response.todos;
 });
 
-export const addTodo = createAsyncThunk('todos/addTodo', async (text) => {
+export const addTodo = createAsyncThunk('todos/addTodo', async (text: string) => {
 	const response = await client.post('/fakeApi/todos', { todo: { text } });
 	return response.todo;
 });
 
-interface TodosState {
+export interface TodosState {
 	status: 'idle' | 'loading';
 	entities: { [key: string]: TodoState };
 }
 
-interface TodoState {
+export interface TodoState {
 	id: number;
 	color: string;
 	text: string;

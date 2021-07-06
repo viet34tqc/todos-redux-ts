@@ -8,13 +8,13 @@ const ColorFilter = () => {
 	const dispatch = useAppDispatch();
 
 	const [checkedState, setCheckedState] = useState(() => {
-		const state = {};
+		const state: { [key: string]: boolean } = {};
 		availableColors.forEach((c) => {
 			state[c] = false;
 		});
 		return state;
 	});
-	const handleCheckedState = (c) => {
+	const handleCheckedState = (c: string) => {
 		setCheckedState({
 			...checkedState,
 			[c]: !checkedState[c],
@@ -36,9 +36,6 @@ const ColorFilter = () => {
 	));
 
 	useEffect(() => {
-		if (!Object.entries(checkedState).length) {
-			return;
-		}
 		const selectedColor = Object.entries(checkedState)
 			.filter(([name, state]) => state)
 			.map(([name, state]) => name);

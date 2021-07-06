@@ -1,10 +1,14 @@
 import { ReactComponent as DeleteIcon } from 'assets/delete.svg';
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { availableColors, capitalize } from 'utils';
 import { useAppDispatch } from '../../../../app/hooks';
-import { deleteTodo, selectTodoColor, toggleTodo } from '../../todos.slice';
+import { deleteTodo, selectTodoColor, TodoState, toggleTodo } from '../../todos.slice';
 import './TodoItem.styles.scss';
-const TodoItem = ({ todo }) => {
+
+interface TodoItemProps {
+	todo: TodoState
+}
+const TodoItem = ({ todo }: TodoItemProps) => {
 	const colorOptions = availableColors.map((color) => (
 		<option key={color} value={color}>
 			{capitalize(color)}
@@ -14,7 +18,9 @@ const TodoItem = ({ todo }) => {
 	const handleDelete = () => {
 		dispatch(deleteTodo(todo.id));
 	};
-	const handleSelectColor = ({ target: { value } }) => {
+	const handleSelectColor = ({
+		target: { value },
+	}: ChangeEvent<HTMLSelectElement>) => {
 		dispatch(selectTodoColor(todo.id, value));
 	};
 	const handleToggle = () => {

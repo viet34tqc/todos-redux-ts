@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { useAppDispatch } from '../../../../app/hooks';
 import Loader from '../../../../components/Loader/Loader';
 import { addTodo } from '../../todos.slice';
@@ -7,7 +7,7 @@ const FormAddTodo = () => {
 	const [text, setText] = useState('');
 	const [status, setStatus] = useState('idle');
 	const dispatch = useAppDispatch();
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setStatus('loading');
 		const trimmedText = text.trim();
